@@ -74,27 +74,29 @@ window.onload = function() {
         const randomFileExtension = Math.floor(Math.random() * fileExtensionsAndOtherShi.length);
         const randomCornyName = Math.floor(Math.random() * cornyNames2.length);
 
-        if (_type === "name+fileextension") {
-            nameLabel.textContent = `${names[randomName]}.${fileExtensionsAndOtherShi[randomFileExtension]}`;
-        } 
-        else if (_type === "name+photon") {
-            nameLabel.textContent = `${names[randomName]}.${cornyNames1[0]}${cornyNames2[randomCornyName]}`;
-        } 
-        else if (_type === "name+playfab") {
-            nameLabel.textContent = `${names[randomName]}.${cornyNames1[1]}${cornyNames2[randomCornyName]}`;
-        } 
-        else if (_type === "photon+fileextension") {
-            nameLabel.textContent = `${cornyNames1[0]}${cornyNames2[randomCornyName]}.${fileExtensionsAndOtherShi[randomFileExtension]}`;
-        } 
-        else if (_type === "playfab+fileextension") {
-            nameLabel.textContent = `${cornyNames1[1]}${cornyNames2[randomCornyName]}.${fileExtensionsAndOtherShi[randomFileExtension]}`;
-        } 
-        else if (_type === "photon") {       
-            nameLabel.textContent = `${cornyNames1[0]}${cornyNames2[randomCornyName]}`;
-        } 
-        else if (_type === "playfab") {          
-            nameLabel.textContent = `${cornyNames1[1]}${cornyNames2[randomCornyName]}`;
-        } 
+        switch(_type) {
+            case "name+fileextension":
+                nameLabel.textContent = `${names[randomName]}.${fileExtensionsAndOtherShi[randomFileExtension]}`;
+                break;
+            case "name+photon":
+                nameLabel.textContent = `${names[randomName]}.${cornyNames1[0]}${cornyNames2[randomCornyName]}`;
+                break;
+            case "name+playfab":
+                nameLabel.textContent = `${names[randomName]}.${cornyNames1[1]}${cornyNames2[randomCornyName]}`;
+                break;
+            case "photon+fileextension":
+                nameLabel.textContent = `${cornyNames1[0]}${cornyNames2[randomCornyName]}.${fileExtensionsAndOtherShi[randomFileExtension]}`;
+                break;
+            case "playfab+fileextension":
+                nameLabel.textContent = `${cornyNames1[1]}${cornyNames2[randomCornyName]}.${fileExtensionsAndOtherShi[randomFileExtension]}`;
+                break;
+            case "photon":
+                nameLabel.textContent = `${cornyNames1[0]}${cornyNames2[randomCornyName]}`;
+                break;
+            case "playfab":
+                nameLabel.textContent = `${cornyNames1[1]}${cornyNames2[randomCornyName]}`;
+                break;
+        }
     }       
 
     generateButton.onclick = GenerateName;
